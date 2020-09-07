@@ -18,7 +18,6 @@ namespace CryoFall.Noon
 
             if(difference.TotalSeconds > 5)
             {
-                Console.WriteLine($"Current Offset: {TimeOfDaySystem.ServerTimeOfDayOffsetSeconds} | Current Time Of Day Seconds: {TimeOfDaySystem.CurrentTimeOfDaySeconds}");
                 var currentOffset = TimeOfDaySystem.ServerTimeOfDayOffsetSeconds;
                 var currentTimeOfDayseconds = TimeOfDaySystem.CurrentTimeOfDaySeconds / 60;
                 var newOffset = originalOffset - (currentTimeOfDayseconds - currentOffset);
@@ -29,7 +28,6 @@ namespace CryoFall.Noon
                         System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                     .Invoke(sut, obj);
                 lastUpdateTime = DateTime.Now;
-                Console.WriteLine($"Current Offset: {TimeOfDaySystem.ServerTimeOfDayOffsetSeconds} | Current Time Of Day Seconds: {TimeOfDaySystem.CurrentTimeOfDaySeconds}");
             }
 
             if(Client.CurrentGame.ConnectionState != AtomicTorch.CBND.GameApi.ServicesClient.ConnectionState.Connected)
